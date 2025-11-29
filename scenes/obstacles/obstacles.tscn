@@ -11,7 +11,7 @@ script = ExtResource("1_0puwj")
 position = Vector2(0, -24)
 texture = ExtResource("1_45l5q")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Up"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Up" groups=["obstacle"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Up/StaticBody2D"]
 build_mode = 1
@@ -21,7 +21,7 @@ polygon = PackedVector2Array(-69, -160, -45, -36, -27, -13, -12, -20, 6, 146, 37
 position = Vector2(0, 424)
 texture = ExtResource("2_0puwj")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Down"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Down" groups=["obstacle"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Down/StaticBody2D"]
 build_mode = 1
