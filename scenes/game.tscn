@@ -21,9 +21,11 @@ position = Vector2(63, 108)
 position = Vector2(91, 0)
 limit_left = 0
 limit_top = 0
-limit_bottom = 360
+limit_bottom = 480
 
 [node name="ObstacleSpawnPoint" type="Node2D" parent="Bat"]
 position = Vector2(359, 0)
 
 [node name="ObstaclesArray" type="Node2D" parent="."]
+
+[connection signal="on_player_passed" from="ObstaclesSpawner" to="." method="_on_obstacles_spawner_on_player_passed"]
