@@ -1,10 +1,15 @@
 extends Node2D
 
+@onready var _hud = $HUD
+
 var _score: int = 0
 
+func _ready() -> void:
+	_hud.set_score(0)
+
 func _process(_delta: float) -> void:
-	#print($Bat.global_position.y)
 	pass
 
 func _on_obstacles_spawner_on_player_passed() -> void:
 	_score += 1
+	_hud.set_score(_score)

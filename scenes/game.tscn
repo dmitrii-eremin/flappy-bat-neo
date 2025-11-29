@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyjq0ecftvfyn"]
+[gd_scene load_steps=6 format=3 uid="uid://dyjq0ecftvfyn"]
 
 [ext_resource type="Script" uid="uid://buc3cw1i3tmap" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://p0knwoocwqqj" path="res://scenes/background.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://clubnq4emx16t" path="res://scenes/characters/bat.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bxs3vhdnxvoth" path="res://scenes/obstacles/obstacles_spawner.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://shjwwboxakw3" path="res://scenes/UI/hud.tscn" id="5_iywne"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
@@ -27,5 +28,7 @@ limit_bottom = 480
 position = Vector2(359, 0)
 
 [node name="ObstaclesArray" type="Node2D" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("5_iywne")]
 
 [connection signal="on_player_passed" from="ObstaclesSpawner" to="." method="_on_obstacles_spawner_on_player_passed"]

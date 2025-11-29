@@ -1,1 +1,3 @@
-Credits: PoorGameDev
+Credits:
+	Sprites + Audio: PoorGameDev
+
