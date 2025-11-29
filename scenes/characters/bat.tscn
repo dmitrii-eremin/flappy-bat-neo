@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://clubnq4emx16t"]
+[gd_scene load_steps=17 format=3 uid="uid://clubnq4emx16t"]
 
 [ext_resource type="Script" uid="uid://bpcwv1urxk8bk" path="res://scenes/characters/bat.gd" id="1_7rjwb"]
 [ext_resource type="Texture2D" uid="uid://bvti7r1wae70a" path="res://assets/Animations/Spritesheets/Fly.png" id="2_ctky8"]
@@ -94,11 +94,19 @@ animations = [{
 "speed": 18.0
 }]
 
-[node name="Bat" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_df3af"]
+radius = 4.0
+
+[node name="Bat" type="CharacterBody2D"]
 script = ExtResource("1_7rjwb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fc0x5")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.12735628
+frame_progress = 0.009422635
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(4, 0)
+shape = SubResource("CircleShape2D_df3af")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://p0knwoocwqqj"]
+
+[ext_resource type="Texture2D" uid="uid://c1n15i53f55q4" path="res://assets/Sprites/Game Objects/Background.png" id="1_bkp1e"]
+[ext_resource type="Script" uid="uid://dvmlyakuvm0si" path="res://scenes/background.gd" id="1_jougr"]
+[ext_resource type="Texture2D" uid="uid://brdeutmogsdmp" path="res://assets/Sprites/Game Objects/Foreground.png" id="2_y0upk"]
+
+[node name="Background" type="Node2D"]
+script = ExtResource("1_jougr")
+
+[node name="BackgroundParallax" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.25, 1)
+repeat_size = Vector2(270, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundParallax"]
+position = Vector2(135, 180)
+texture = ExtResource("1_bkp1e")
+
+[node name="ForegroundParallax" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(270, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ForegroundParallax"]
+position = Vector2(135, 180)
+texture = ExtResource("2_y0upk")
