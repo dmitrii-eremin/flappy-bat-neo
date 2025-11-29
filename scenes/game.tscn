@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyjq0ecftvfyn"]
+[gd_scene load_steps=5 format=3 uid="uid://dyjq0ecftvfyn"]
 
 [ext_resource type="Script" uid="uid://buc3cw1i3tmap" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://p0knwoocwqqj" path="res://scenes/background.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://clubnq4emx16t" path="res://scenes/characters/bat.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bxs3vhdnxvoth" path="res://scenes/obstacles/obstacles_spawner.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
+
+[node name="ObstaclesSpawner" parent="." node_paths=PackedStringArray("spawn_point", "obstacles_array") instance=ExtResource("4_lbhrr")]
+spawn_point = NodePath("../Bat/ObstacleSpawnPoint")
+obstacles_array = NodePath("../ObstaclesArray")
 
 [node name="Background" parent="." instance=ExtResource("2_lnu2h")]
 
@@ -14,5 +19,11 @@ position = Vector2(63, 108)
 
 [node name="Camera2D" type="Camera2D" parent="Bat"]
 position = Vector2(91, 0)
+limit_left = 0
 limit_top = 0
 limit_bottom = 360
+
+[node name="ObstacleSpawnPoint" type="Node2D" parent="Bat"]
+position = Vector2(359, 0)
+
+[node name="ObstaclesArray" type="Node2D" parent="."]
