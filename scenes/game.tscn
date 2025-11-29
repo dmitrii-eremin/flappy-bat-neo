@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyjq0ecftvfyn"]
+
+[ext_resource type="Script" uid="uid://buc3cw1i3tmap" path="res://scenes/game.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://clubnq4emx16t" path="res://scenes/characters/bat.tscn" id="2_yqjtg"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_uwrxv")
+
+[node name="Bat" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(63, 108)
