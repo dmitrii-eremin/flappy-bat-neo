@@ -89,9 +89,11 @@ text = "Credits"
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2"]
 layout_mode = 2
+mouse_filter = 0
 text = "SCORE: 22"
 label_settings = SubResource("LabelSettings_vovv2")
 horizontal_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="gui_input" from="CanvasLayer/MarginContainer/VBoxContainer/Label" to="." method="_on_label_gui_input"]
