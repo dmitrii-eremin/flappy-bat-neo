@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbrs63v0agqs7"]
+
+[ext_resource type="Script" uid="uid://ddmkxteqm05bj" path="res://scenes/obstacles/spikes.gd" id="1_0qenr"]
+[ext_resource type="Texture2D" uid="uid://bfre3r58qxbub" path="res://assets/Sprites/Game Objects/Terrain.png" id="1_7tcma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qenr"]
+size = Vector2(540, 37)
+
+[node name="Spikes" type="Node2D"]
+script = ExtResource("1_0qenr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(0, 368, 270, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7tcma")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("1_7tcma")
+centered = false
+offset = Vector2(270, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["obstacle"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(270, 397.5)
+shape = SubResource("RectangleShape2D_0qenr")
+
+[node name="TimeToDestroyNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(519, 331)
+rect = Rect2(-7, 45, 28, 104)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="TimeToDestroyNotifier" to="." method="_on_time_to_destroy_notifier_screen_exited"]

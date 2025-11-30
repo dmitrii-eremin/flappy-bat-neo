@@ -4,5 +4,4 @@ Credits:
 
 
 TODO:
-	* Spikes at the bottom of the level
 	* Buttons should handle press and generate no action

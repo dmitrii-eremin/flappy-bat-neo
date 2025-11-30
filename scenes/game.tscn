@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyjq0ecftvfyn"]
+[gd_scene load_steps=9 format=3 uid="uid://dyjq0ecftvfyn"]
 
 [ext_resource type="Script" uid="uid://buc3cw1i3tmap" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://p0knwoocwqqj" path="res://scenes/background.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://clubnq4emx16t" path="res://scenes/characters/bat.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bxs3vhdnxvoth" path="res://scenes/obstacles/obstacles_spawner.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://0hjwqrrrhqrj" path="res://scenes/obstacles/spikes_spawner.tscn" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://shjwwboxakw3" path="res://scenes/UI/hud.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dahn86f1lnnqc" path="res://scenes/UI/pause_menu.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bbrs63v0agqs7" path="res://scenes/obstacles/spikes.tscn" id="7_u5sy4"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
@@ -18,6 +20,10 @@ visible = false
 [node name="ObstaclesSpawner" parent="." node_paths=PackedStringArray("spawn_point", "obstacles_array") instance=ExtResource("4_lbhrr")]
 spawn_point = NodePath("../Bat/ObstacleSpawnPoint")
 obstacles_array = NodePath("../ObstaclesArray")
+
+[node name="SpikesSpawner" parent="." node_paths=PackedStringArray("initial_spikes", "spikes_parent") instance=ExtResource("5_gee14")]
+initial_spikes = NodePath("../SpikesArray/Spikes")
+spikes_parent = NodePath("../SpikesArray")
 
 [node name="Background" parent="." instance=ExtResource("2_lnu2h")]
 
@@ -34,6 +40,11 @@ limit_bottom = 480
 position = Vector2(359, 0)
 
 [node name="ObstaclesArray" type="Node2D" parent="."]
+
+[node name="SpikesArray" type="Node2D" parent="."]
+
+[node name="Spikes" parent="SpikesArray" instance=ExtResource("7_u5sy4")]
+position = Vector2(0, 72)
 
 [connection signal="on_pause_requested" from="HUD" to="." method="_on_hud_on_pause_requested"]
 [connection signal="on_resume" from="PauseMenu" to="." method="_on_pause_menu_on_resume"]
