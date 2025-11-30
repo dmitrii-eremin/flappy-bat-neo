@@ -29,7 +29,7 @@ func _select_velocity(delta: float) -> void:
 	if global_position.y < 10 and velocity.y < 0:
 		velocity.y = 0
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("jump"):
 		velocity.y = jump_speed
 		
 func _move_bat() -> void:

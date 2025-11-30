@@ -1,9 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://shjwwboxakw3"]
+[gd_scene load_steps=5 format=3 uid="uid://shjwwboxakw3"]
 
 [ext_resource type="Script" uid="uid://b05emsmnc8bvy" path="res://scenes/UI/hud.gd" id="1_c4vmg"]
 [ext_resource type="PackedScene" uid="uid://i4r3kcesg5xp" path="res://scenes/UI/score.tscn" id="2_rd3kb"]
+[ext_resource type="Texture2D" uid="uid://onbwvtkho2lv" path="res://assets/Sprites/UI Elements/Box.png" id="3_y5tme"]
+[ext_resource type="Texture2D" uid="uid://byhal5vp4qjh6" path="res://assets/Sprites/UI Elements/pause-icon.png" id="4_18exe"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_c4vmg")
 
 [node name="Score" parent="." instance=ExtResource("2_rd3kb")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="PauseButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_y5tme")
+texture_pressed = ExtResource("3_y5tme")
+texture_hover = ExtResource("3_y5tme")
+texture_disabled = ExtResource("3_y5tme")
+texture_focused = ExtResource("3_y5tme")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PauseButton"]
+layout_mode = 0
+offset_left = 3.9999998
+offset_top = 3.9999998
+offset_right = 34.0
+offset_bottom = 34.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_18exe")
+
+[connection signal="pressed" from="MarginContainer/PauseButton" to="." method="_on_pause_button_pressed"]

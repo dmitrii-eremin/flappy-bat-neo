@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var _hud = $HUD
+@onready var _pause_menu = $PauseMenu
 
 var _score: int = 0
 
@@ -17,3 +18,7 @@ func _on_obstacles_spawner_on_player_passed() -> void:
 func _on_bat_on_dead() -> void:
 	GameData.gained_score = _score
 	get_tree().change_scene_to_file("res://scenes/UI/completed.tscn")
+
+func _on_hud_on_pause_requested() -> void:
+	get_tree().paused = true
+	_pause_menu.show()
