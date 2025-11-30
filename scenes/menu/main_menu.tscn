@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://bux43oohetno0"]
+
+[ext_resource type="PackedScene" uid="uid://gta17utp0k4k" path="res://scenes/menu/menu_base.tscn" id="1_nl8w3"]
+[ext_resource type="Script" uid="uid://d3kjdoqi0cmw0" path="res://scenes/menu/main_menu.gd" id="2_3rkf3"]
+[ext_resource type="FontFile" uid="uid://3y71ogq5q32" path="res://assets/Fonts/Pixeled.ttf" id="3_hj162"]
+[ext_resource type="StyleBox" uid="uid://dj3pmyufjy8b5" path="res://resources/button.tres" id="4_xn6kt"]
+[ext_resource type="StyleBox" uid="uid://xlbbxiwvxtut" path="res://resources/button_pressed.tres" id="5_isoef"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgo02"]
+font = ExtResource("3_hj162")
+font_size = 24
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vovv2"]
+font = ExtResource("3_hj162")
+font_size = 14
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="MenuBase" instance=ExtResource("1_nl8w3")]
+script = ExtResource("2_3rkf3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
+
+[node name="TitleMarginContainer" type="MarginContainer" parent="CanvasLayer" index="0"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 187.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 48
+
+[node name="Label" type="Label" parent="CanvasLayer/TitleMarginContainer" index="0"]
+layout_mode = 2
+text = "FLAPPY BAT
+NEO"
+label_settings = SubResource("LabelSettings_qgo02")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" index="1"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -166.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_right = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("4_xn6kt")
+theme_override_styles/normal_mirrored = ExtResource("4_xn6kt")
+theme_override_styles/pressed = ExtResource("5_isoef")
+theme_override_styles/pressed_mirrored = ExtResource("5_isoef")
+theme_override_styles/hover = ExtResource("4_xn6kt")
+theme_override_styles/hover_mirrored = ExtResource("4_xn6kt")
+theme_override_styles/hover_pressed = ExtResource("5_isoef")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_isoef")
+theme_override_styles/disabled = ExtResource("4_xn6kt")
+theme_override_styles/disabled_mirrored = ExtResource("4_xn6kt")
+theme_override_styles/focus = ExtResource("4_xn6kt")
+text = "Play"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("4_xn6kt")
+theme_override_styles/normal_mirrored = ExtResource("4_xn6kt")
+theme_override_styles/pressed = ExtResource("5_isoef")
+theme_override_styles/pressed_mirrored = ExtResource("5_isoef")
+theme_override_styles/hover = ExtResource("4_xn6kt")
+theme_override_styles/hover_mirrored = ExtResource("4_xn6kt")
+theme_override_styles/hover_pressed = ExtResource("5_isoef")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_isoef")
+theme_override_styles/disabled = ExtResource("4_xn6kt")
+theme_override_styles/disabled_mirrored = ExtResource("4_xn6kt")
+theme_override_styles/focus = ExtResource("4_xn6kt")
+text = "Credits"
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+text = "SCORE: 22"
+label_settings = SubResource("LabelSettings_vovv2")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

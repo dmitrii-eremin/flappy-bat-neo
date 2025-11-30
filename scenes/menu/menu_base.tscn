@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://gta17utp0k4k"]
+
+[ext_resource type="Texture2D" uid="uid://c1n15i53f55q4" path="res://assets/Sprites/Game Objects/Background.png" id="1_i78j2"]
+[ext_resource type="PackedScene" uid="uid://bngs2hlb4ue8x" path="res://scenes/others/bat_in_main_menu.tscn" id="2_cnret"]
+
+[node name="MenuBase" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_i78j2")
+centered = false
+
+[node name="PointsOfInterest" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="PointsOfInterest"]
+position = Vector2(64, 64)
+
+[node name="Node2D2" type="Node2D" parent="PointsOfInterest"]
+position = Vector2(192, 64)
+
+[node name="Node2D3" type="Node2D" parent="PointsOfInterest"]
+position = Vector2(64, 424)
+
+[node name="Node2D4" type="Node2D" parent="PointsOfInterest"]
+position = Vector2(192, 424)
+
+[node name="Node2D5" type="Node2D" parent="PointsOfInterest"]
+position = Vector2(128, 256)
+
+[node name="Node2D6" type="Node2D" parent="PointsOfInterest"]
+position = Vector2(256, 256)
+
+[node name="Node2D7" type="Node2D" parent="PointsOfInterest"]
+position = Vector2(16, 256)
+
+[node name="Bats" type="Node2D" parent="."]
+
+[node name="BatInMainMenu1" parent="Bats" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("2_cnret")]
+position = Vector2(64, 64)
+speed = 155.0
+points_of_interest = [NodePath("../../PointsOfInterest/Node2D"), NodePath("../../PointsOfInterest/Node2D2"), NodePath("../../PointsOfInterest/Node2D3"), NodePath("../../PointsOfInterest/Node2D4"), NodePath("../../PointsOfInterest/Node2D5"), NodePath("../../PointsOfInterest/Node2D6"), NodePath("../../PointsOfInterest/Node2D7")]
+
+[node name="BatInMainMenu2" parent="Bats" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("2_cnret")]
+position = Vector2(192, 64)
+points_of_interest = [NodePath("../../PointsOfInterest/Node2D"), NodePath("../../PointsOfInterest/Node2D2"), NodePath("../../PointsOfInterest/Node2D3"), NodePath("../../PointsOfInterest/Node2D4"), NodePath("../../PointsOfInterest/Node2D5"), NodePath("../../PointsOfInterest/Node2D6"), NodePath("../../PointsOfInterest/Node2D7")]
+
+[node name="BatInMainMenu3" parent="Bats" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("2_cnret")]
+position = Vector2(128, 256)
+speed = 125.0
+points_of_interest = [NodePath("../../PointsOfInterest/Node2D"), NodePath("../../PointsOfInterest/Node2D2"), NodePath("../../PointsOfInterest/Node2D3"), NodePath("../../PointsOfInterest/Node2D4"), NodePath("../../PointsOfInterest/Node2D5"), NodePath("../../PointsOfInterest/Node2D6"), NodePath("../../PointsOfInterest/Node2D7")]
+
+[node name="BatInMainMenu4" parent="Bats" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("2_cnret")]
+position = Vector2(16, 256)
+speed = 110.0
+points_of_interest = [NodePath("../../PointsOfInterest/Node2D"), NodePath("../../PointsOfInterest/Node2D2"), NodePath("../../PointsOfInterest/Node2D3"), NodePath("../../PointsOfInterest/Node2D4"), NodePath("../../PointsOfInterest/Node2D5"), NodePath("../../PointsOfInterest/Node2D6"), NodePath("../../PointsOfInterest/Node2D7")]
+
+[node name="BatInMainMenu5" parent="Bats" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("2_cnret")]
+position = Vector2(256, 256)
+speed = 120.0
+points_of_interest = [NodePath("../../PointsOfInterest/Node2D"), NodePath("../../PointsOfInterest/Node2D2"), NodePath("../../PointsOfInterest/Node2D3"), NodePath("../../PointsOfInterest/Node2D4"), NodePath("../../PointsOfInterest/Node2D5"), NodePath("../../PointsOfInterest/Node2D6"), NodePath("../../PointsOfInterest/Node2D7")]
+
+[node name="BatInMainMenu6" parent="Bats" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("2_cnret")]
+position = Vector2(64, 416)
+speed = 165.0
+points_of_interest = [NodePath("../../PointsOfInterest/Node2D"), NodePath("../../PointsOfInterest/Node2D2"), NodePath("../../PointsOfInterest/Node2D3"), NodePath("../../PointsOfInterest/Node2D4"), NodePath("../../PointsOfInterest/Node2D5"), NodePath("../../PointsOfInterest/Node2D6"), NodePath("../../PointsOfInterest/Node2D7")]
+
+[node name="BatInMainMenu7" parent="Bats" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("2_cnret")]
+position = Vector2(192, 424)
+speed = 135.0
+points_of_interest = [NodePath("../../PointsOfInterest/Node2D"), NodePath("../../PointsOfInterest/Node2D2"), NodePath("../../PointsOfInterest/Node2D3"), NodePath("../../PointsOfInterest/Node2D4"), NodePath("../../PointsOfInterest/Node2D5"), NodePath("../../PointsOfInterest/Node2D6"), NodePath("../../PointsOfInterest/Node2D7")]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Flappy Bat Neo"
-run/main_scene="uid://c5r8smagn76hr"
+run/main_scene="uid://bux43oohetno0"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://beskexgffx5uf"
 

@@ -11,7 +11,6 @@ func set_score(value: int) -> void:
 func _on_pause_button_pressed() -> void:
 	on_pause_requested.emit()
 
-
 func _on_control_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		on_jump_requested.emit()
