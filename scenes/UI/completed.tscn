@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvoojeiopo0s8"]
+[gd_scene load_steps=13 format=3 uid="uid://bvoojeiopo0s8"]
 
 [ext_resource type="Script" uid="uid://cqc2asrv5tagt" path="res://scenes/UI/completed.gd" id="1_2msoo"]
 [ext_resource type="Texture2D" uid="uid://c1n15i53f55q4" path="res://assets/Sprites/Game Objects/Background.png" id="1_m0x8y"]
 [ext_resource type="Texture2D" uid="uid://bvti7r1wae70a" path="res://assets/Animations/Spritesheets/Fly.png" id="3_kurre"]
 [ext_resource type="FontFile" uid="uid://3y71ogq5q32" path="res://assets/Fonts/Pixeled.ttf" id="3_qisfi"]
+[ext_resource type="StyleBox" uid="uid://xlbbxiwvxtut" path="res://resources/button_pressed.tres" id="5_521sk"]
+[ext_resource type="StyleBox" uid="uid://dj3pmyufjy8b5" path="res://resources/button.tres" id="6_eeag3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_521sk"]
 font = ExtResource("3_qisfi")
@@ -109,11 +111,33 @@ layout_mode = 2
 [node name="PlayAgainButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("6_eeag3")
+theme_override_styles/normal_mirrored = ExtResource("6_eeag3")
+theme_override_styles/pressed = ExtResource("5_521sk")
+theme_override_styles/pressed_mirrored = ExtResource("5_521sk")
+theme_override_styles/hover = ExtResource("6_eeag3")
+theme_override_styles/hover_mirrored = ExtResource("6_eeag3")
+theme_override_styles/hover_pressed = ExtResource("5_521sk")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_521sk")
+theme_override_styles/disabled = ExtResource("6_eeag3")
+theme_override_styles/disabled_mirrored = ExtResource("6_eeag3")
+theme_override_styles/focus = ExtResource("6_eeag3")
 text = "Play Again"
 
 [node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("6_eeag3")
+theme_override_styles/normal_mirrored = ExtResource("6_eeag3")
+theme_override_styles/pressed = ExtResource("5_521sk")
+theme_override_styles/pressed_mirrored = ExtResource("5_521sk")
+theme_override_styles/hover = ExtResource("6_eeag3")
+theme_override_styles/hover_mirrored = ExtResource("6_eeag3")
+theme_override_styles/hover_pressed = ExtResource("5_521sk")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_521sk")
+theme_override_styles/disabled = ExtResource("6_eeag3")
+theme_override_styles/disabled_mirrored = ExtResource("6_eeag3")
+theme_override_styles/focus = ExtResource("6_eeag3")
 text = "Main Menu"
 
 [connection signal="timeout" from="AnimatedSprite2D/TurnBatTimer" to="." method="_on_turn_bat_timer_timeout"]
