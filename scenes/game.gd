@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var _hud = $HUD
 @onready var _pause_menu = $PauseMenu
+@onready var _bat = $Bat
 
 var _score: int = 0
 
@@ -23,3 +24,6 @@ func _on_hud_on_pause_requested() -> void:
 func _on_pause_menu_on_resume() -> void:
 	_pause_menu.hide()
 	get_tree().paused = false
+
+func _on_hud_on_jump_requested() -> void:
+	_bat.jump()

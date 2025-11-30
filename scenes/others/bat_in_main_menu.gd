@@ -17,6 +17,8 @@ func _move_towards_target(delta: float) -> void:
 	var direction: Vector2 = (_current_point.global_position - global_position).normalized()
 	position += speed * direction * delta
 	
+	flip_h = direction.x < 0
+	
 	var diff = _current_point.global_position - global_position
 	if diff.length_squared() < 3 ** 2:
 		_current_point = null

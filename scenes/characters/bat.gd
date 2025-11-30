@@ -14,6 +14,10 @@ enum State {
 }
 
 var _state: State = State.FLY
+var _is_jump_requested: bool = false
+
+func jump() -> void:
+	_is_jump_requested = true
 
 func _physics_process(delta: float) -> void:
 	_select_velocity(delta)
@@ -29,8 +33,9 @@ func _select_velocity(delta: float) -> void:
 	if global_position.y < 10 and velocity.y < 0:
 		velocity.y = 0
 	
-	if Input.is_action_just_pressed("jump"):
+	if _is_jump_requested:
 		velocity.y = jump_speed
+		_is_jump_requested = false
 		
 func _move_bat() -> void:
 	if _state == State.FLY:
