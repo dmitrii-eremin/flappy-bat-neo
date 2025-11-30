@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyjq0ecftvfyn"]
+[gd_scene load_steps=10 format=3 uid="uid://dyjq0ecftvfyn"]
 
 [ext_resource type="Script" uid="uid://buc3cw1i3tmap" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://p0knwoocwqqj" path="res://scenes/background.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://clubnq4emx16t" path="res://scenes/characters/bat.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://km53tldnaid" path="res://scenes/UI/preparation_timer.tscn" id="4_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bxs3vhdnxvoth" path="res://scenes/obstacles/obstacles_spawner.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://0hjwqrrrhqrj" path="res://scenes/obstacles/spikes_spawner.tscn" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://shjwwboxakw3" path="res://scenes/UI/hud.tscn" id="5_iywne"]
@@ -15,6 +16,9 @@ script = ExtResource("1_uwrxv")
 [node name="HUD" parent="." instance=ExtResource("5_iywne")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_p57ef")]
+visible = false
+
+[node name="PreparationTimer" parent="." instance=ExtResource("4_0tnpc")]
 visible = false
 
 [node name="ObstaclesSpawner" parent="." node_paths=PackedStringArray("spawn_point", "obstacles_array") instance=ExtResource("4_lbhrr")]
@@ -49,5 +53,6 @@ position = Vector2(0, 72)
 [connection signal="on_jump_requested" from="HUD" to="." method="_on_hud_on_jump_requested"]
 [connection signal="on_pause_requested" from="HUD" to="." method="_on_hud_on_pause_requested"]
 [connection signal="on_resume" from="PauseMenu" to="." method="_on_pause_menu_on_resume"]
+[connection signal="on_time_is_out" from="PreparationTimer" to="." method="_on_preparation_timer_on_time_is_out"]
 [connection signal="on_player_passed" from="ObstaclesSpawner" to="." method="_on_obstacles_spawner_on_player_passed"]
 [connection signal="on_dead" from="Bat" to="." method="_on_bat_on_dead"]
