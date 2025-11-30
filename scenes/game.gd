@@ -22,3 +22,7 @@ func _on_bat_on_dead() -> void:
 func _on_hud_on_pause_requested() -> void:
 	get_tree().paused = true
 	_pause_menu.show()
+
+func _on_pause_menu_on_resume() -> void:
+	_pause_menu.hide()
+	get_tree().paused = false

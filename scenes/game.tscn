@@ -36,5 +36,6 @@ position = Vector2(359, 0)
 [node name="ObstaclesArray" type="Node2D" parent="."]
 
 [connection signal="on_pause_requested" from="HUD" to="." method="_on_hud_on_pause_requested"]
+[connection signal="on_resume" from="PauseMenu" to="." method="_on_pause_menu_on_resume"]
 [connection signal="on_player_passed" from="ObstaclesSpawner" to="." method="_on_obstacles_spawner_on_player_passed"]
 [connection signal="on_dead" from="Bat" to="." method="_on_bat_on_dead"]
