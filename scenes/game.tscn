@@ -32,3 +32,4 @@ position = Vector2(359, 0)
 [node name="HUD" parent="." instance=ExtResource("5_iywne")]
 
 [connection signal="on_player_passed" from="ObstaclesSpawner" to="." method="_on_obstacles_spawner_on_player_passed"]
+[connection signal="on_dead" from="Bat" to="." method="_on_bat_on_dead"]

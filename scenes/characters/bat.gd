@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 func _select_velocity(delta: float) -> void:
 	if _state == State.FLY:
 		velocity.x = speed
-		velocity.y += Globals.GRAVITY * delta
+		velocity.y += GameData.GRAVITY * delta
 	else:
 		velocity = Vector2.ZERO
 		

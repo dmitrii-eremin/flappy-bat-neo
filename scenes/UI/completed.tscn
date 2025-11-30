@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://bvoojeiopo0s8"]
+
+[ext_resource type="Script" uid="uid://cqc2asrv5tagt" path="res://scenes/UI/completed.gd" id="1_2msoo"]
+[ext_resource type="Texture2D" uid="uid://c1n15i53f55q4" path="res://assets/Sprites/Game Objects/Background.png" id="1_m0x8y"]
+[ext_resource type="Texture2D" uid="uid://bvti7r1wae70a" path="res://assets/Animations/Spritesheets/Fly.png" id="3_kurre"]
+[ext_resource type="FontFile" uid="uid://3y71ogq5q32" path="res://assets/Fonts/Pixeled.ttf" id="3_qisfi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_521sk"]
+font = ExtResource("3_qisfi")
+font_size = 18
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qisfi"]
+atlas = ExtResource("3_kurre")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_521sk"]
+atlas = ExtResource("3_kurre")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeag3"]
+atlas = ExtResource("3_kurre")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxm66"]
+atlas = ExtResource("3_kurre")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3owjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qisfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_521sk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeag3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxm66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="Completed" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_2msoo")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_m0x8y")
+
+[node name="ScoreContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="Score" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+text = "122"
+label_settings = SubResource("LabelSettings_521sk")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(135, 192)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_3owjo")
+autoplay = "default"
+
+[node name="TurnBatTimer" type="Timer" parent="AnimatedSprite2D"]
+wait_time = 2.5
+autostart = true
+
+[connection signal="timeout" from="AnimatedSprite2D/TurnBatTimer" to="." method="_on_turn_bat_timer_timeout"]
