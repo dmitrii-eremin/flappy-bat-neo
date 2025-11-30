@@ -19,6 +19,7 @@ theme_override_constants/margin_top = 8
 
 [node name="PauseButton" type="TextureButton" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 texture_normal = ExtResource("3_y5tme")
 texture_pressed = ExtResource("3_y5tme")
 texture_hover = ExtResource("3_y5tme")
