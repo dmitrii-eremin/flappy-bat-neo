@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://clubnq4emx16t"]
+[gd_scene load_steps=19 format=3 uid="uid://clubnq4emx16t"]
 
 [ext_resource type="Script" uid="uid://bpcwv1urxk8bk" path="res://scenes/characters/bat.gd" id="1_7rjwb"]
 [ext_resource type="Texture2D" uid="uid://bvti7r1wae70a" path="res://assets/Animations/Spritesheets/Fly.png" id="2_ctky8"]
 [ext_resource type="Texture2D" uid="uid://de6l4fc8264o5" path="res://assets/Animations/Spritesheets/Death.png" id="2_df3af"]
+[ext_resource type="AudioStream" uid="uid://ce6qnok7ck86g" path="res://assets/Audio/Sound Effects/Fly.wav" id="4_1xq0b"]
+[ext_resource type="AudioStream" uid="uid://dtrn4gpcd8g1l" path="res://assets/Audio/Sound Effects/Death.wav" id="5_v5mn7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fc0x5"]
 atlas = ExtResource("2_df3af")
@@ -113,6 +115,14 @@ shape = SubResource("CircleShape2D_df3af")
 [node name="DeadTimer" type="Timer" parent="."]
 wait_time = 0.75
 one_shot = true
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="Fly" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_1xq0b")
+
+[node name="Death" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_v5mn7")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="DeadTimer" to="." method="_on_dead_timer_timeout"]

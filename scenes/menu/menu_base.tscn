@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://gta17utp0k4k"]
+[gd_scene load_steps=4 format=3 uid="uid://gta17utp0k4k"]
 
 [ext_resource type="Texture2D" uid="uid://c1n15i53f55q4" path="res://assets/Sprites/Game Objects/Background.png" id="1_i78j2"]
 [ext_resource type="PackedScene" uid="uid://bngs2hlb4ue8x" path="res://scenes/others/bat_in_main_menu.tscn" id="2_cnret"]
+[ext_resource type="AudioStream" uid="uid://sh5e6qtmduap" path="res://assets/Audio/Music/Background Music.mp3" id="3_cnret"]
 
 [node name="MenuBase" type="Node2D"]
 
@@ -67,3 +68,10 @@ points_of_interest = [NodePath("../../PointsOfInterest/Node2D"), NodePath("../..
 position = Vector2(192, 424)
 speed = 135.0
 points_of_interest = [NodePath("../../PointsOfInterest/Node2D"), NodePath("../../PointsOfInterest/Node2D2"), NodePath("../../PointsOfInterest/Node2D3"), NodePath("../../PointsOfInterest/Node2D4"), NodePath("../../PointsOfInterest/Node2D5"), NodePath("../../PointsOfInterest/Node2D6"), NodePath("../../PointsOfInterest/Node2D7")]
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_cnret")
+autoplay = true
+parameters/looping = false

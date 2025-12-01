@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyjq0ecftvfyn"]
+[gd_scene load_steps=11 format=3 uid="uid://dyjq0ecftvfyn"]
 
 [ext_resource type="Script" uid="uid://buc3cw1i3tmap" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://p0knwoocwqqj" path="res://scenes/background.tscn" id="2_lnu2h"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://shjwwboxakw3" path="res://scenes/UI/hud.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dahn86f1lnnqc" path="res://scenes/UI/pause_menu.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bbrs63v0agqs7" path="res://scenes/obstacles/spikes.tscn" id="7_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://sh5e6qtmduap" path="res://assets/Audio/Music/Background Music.mp3" id="10_vtaks"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
@@ -49,6 +50,13 @@ position = Vector2(359, 0)
 
 [node name="Spikes" parent="SpikesArray" instance=ExtResource("7_u5sy4")]
 position = Vector2(0, 72)
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("10_vtaks")
+autoplay = true
+parameters/looping = false
 
 [connection signal="on_jump_requested" from="HUD" to="." method="_on_hud_on_jump_requested"]
 [connection signal="on_pause_requested" from="HUD" to="." method="_on_hud_on_pause_requested"]

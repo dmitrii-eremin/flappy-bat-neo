@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var _score_label: Label = $CanvasLayer/MarginContainer/VBoxContainer/Label
+@onready var _background_music = $Sounds/BackgroundMusic
 
 var _user_data: UserData = UserData.new()
 
@@ -15,6 +16,7 @@ func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _on_credits_button_pressed() -> void:
+	GameData.bg_music_playback_position = _background_music.get_playback_position()
 	get_tree().change_scene_to_file("res://scenes/menu/menu_credits.tscn")
 
 func _on_label_gui_input(event: InputEvent) -> void:

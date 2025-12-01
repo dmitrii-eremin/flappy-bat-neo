@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvoojeiopo0s8"]
+[gd_scene load_steps=15 format=3 uid="uid://bvoojeiopo0s8"]
 
 [ext_resource type="Script" uid="uid://cqc2asrv5tagt" path="res://scenes/UI/completed.gd" id="1_2msoo"]
 [ext_resource type="Texture2D" uid="uid://c1n15i53f55q4" path="res://assets/Sprites/Game Objects/Background.png" id="1_m0x8y"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://3y71ogq5q32" path="res://assets/Fonts/Pixeled.ttf" id="3_qisfi"]
 [ext_resource type="StyleBox" uid="uid://xlbbxiwvxtut" path="res://resources/button_pressed.tres" id="5_521sk"]
 [ext_resource type="StyleBox" uid="uid://dj3pmyufjy8b5" path="res://resources/button.tres" id="6_eeag3"]
+[ext_resource type="AudioStream" uid="uid://dcm2evu3wbmc2" path="res://assets/Audio/Sound Effects/Record.wav" id="7_3owjo"]
+[ext_resource type="AudioStream" uid="uid://c02sgos8i7nwb" path="res://assets/Audio/Sound Effects/Game Over.wav" id="8_yscnf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_521sk"]
 font = ExtResource("3_qisfi")
@@ -139,6 +141,14 @@ theme_override_styles/disabled = ExtResource("6_eeag3")
 theme_override_styles/disabled_mirrored = ExtResource("6_eeag3")
 theme_override_styles/focus = ExtResource("6_eeag3")
 text = "Main Menu"
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="RecordSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_3owjo")
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_yscnf")
 
 [connection signal="timeout" from="AnimatedSprite2D/TurnBatTimer" to="." method="_on_turn_bat_timer_timeout"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]

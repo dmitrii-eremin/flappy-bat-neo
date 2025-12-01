@@ -8,6 +8,9 @@ signal on_dead()
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _dead_timer: Timer = $DeadTimer
 
+@onready var _sound_fly = $Sounds/Fly
+@onready var _sound_death = $Sounds/Death
+
 enum State {
 	FLY,
 	DEAD
@@ -34,6 +37,7 @@ func _select_velocity(delta: float) -> void:
 		velocity.y = 0
 	
 	if _is_jump_requested:
+		_sound_fly.play()
 		velocity.y = jump_speed
 		_is_jump_requested = false
 		
@@ -50,6 +54,7 @@ func _process_collisions() -> void:
 			break
 
 func _on_hit_obstacle() -> void:
+	_sound_death.play()
 	_change_state(State.DEAD)
 	
 func _change_state(new_state: State) -> void:
