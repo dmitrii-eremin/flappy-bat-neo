@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh0a0i8xae5q6"]
+
+[ext_resource type="Script" uid="uid://cf85qtc5jxtd5" path="res://scenes/others/bat_auto_pilot.gd" id="1_ujop8"]
+
+[node name="BatAutoPilot" type="Node2D"]
+script = ExtResource("1_ujop8")
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

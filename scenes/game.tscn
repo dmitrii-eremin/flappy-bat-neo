@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyjq0ecftvfyn"]
+[gd_scene load_steps=12 format=3 uid="uid://dyjq0ecftvfyn"]
 
 [ext_resource type="Script" uid="uid://buc3cw1i3tmap" path="res://scenes/game.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dh0a0i8xae5q6" path="res://scenes/others/bat_auto_pilot.tscn" id="2_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://p0knwoocwqqj" path="res://scenes/background.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://clubnq4emx16t" path="res://scenes/characters/bat.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://km53tldnaid" path="res://scenes/UI/preparation_timer.tscn" id="4_0tnpc"]
@@ -14,6 +15,9 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
 
+[node name="BatAutoPilot" parent="." instance=ExtResource("2_kvpfn")]
+is_enabled = false
+
 [node name="HUD" parent="." instance=ExtResource("5_iywne")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_p57ef")]
@@ -21,6 +25,7 @@ visible = false
 
 [node name="PreparationTimer" parent="." instance=ExtResource("4_0tnpc")]
 visible = false
+wait_time = 1
 
 [node name="ObstaclesSpawner" parent="." node_paths=PackedStringArray("spawn_point", "obstacles_array") instance=ExtResource("4_lbhrr")]
 spawn_point = NodePath("../Bat/ObstacleSpawnPoint")
