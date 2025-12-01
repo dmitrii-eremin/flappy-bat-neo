@@ -1,3 +1,2 @@
-Credits:
-	Sprites + Audio: PoorGameDev
-	Pause icon by Icons8
+# Flappy Bat Neo
+

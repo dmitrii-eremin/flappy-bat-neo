@@ -25,7 +25,6 @@ visible = false
 
 [node name="PreparationTimer" parent="." instance=ExtResource("4_0tnpc")]
 visible = false
-wait_time = 1
 
 [node name="ObstaclesSpawner" parent="." node_paths=PackedStringArray("spawn_point", "obstacles_array") instance=ExtResource("4_lbhrr")]
 spawn_point = NodePath("../Bat/ObstacleSpawnPoint")
