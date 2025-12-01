@@ -63,6 +63,7 @@ layout_mode = 2
 [node name="ResumeButton" type="Button" parent="Control/ButtonsMarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_feath")
 theme_override_styles/normal = ExtResource("2_mko1u")
 theme_override_styles/normal_mirrored = ExtResource("2_mko1u")
 theme_override_styles/pressed = ExtResource("3_feath")
@@ -79,6 +80,7 @@ text = "Resume"
 [node name="MainMenuButton" type="Button" parent="Control/ButtonsMarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_feath")
 theme_override_styles/normal = ExtResource("2_mko1u")
 theme_override_styles/normal_mirrored = ExtResource("2_mko1u")
 theme_override_styles/pressed = ExtResource("3_feath")

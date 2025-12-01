@@ -2152,6 +2152,7 @@ theme_override_constants/margin_right = 48
 [node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer" index="0"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_xf4af")
 theme_override_styles/normal = ExtResource("4_em1wr")
 theme_override_styles/normal_mirrored = ExtResource("4_em1wr")
 theme_override_styles/pressed = ExtResource("5_a81g2")
@@ -2163,6 +2164,6 @@ theme_override_styles/hover_pressed_mirrored = ExtResource("5_a81g2")
 theme_override_styles/disabled = ExtResource("4_em1wr")
 theme_override_styles/disabled_mirrored = ExtResource("4_em1wr")
 theme_override_styles/focus = ExtResource("4_em1wr")
-text = "Back"
+text = "BACK"
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
