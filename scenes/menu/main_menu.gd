@@ -20,5 +20,5 @@ func _on_credits_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu/menu_credits.tscn")
 
 func _on_label_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.is_pressed():
+	if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.is_pressed():
 		get_tree().change_scene_to_file("res://scenes/menu/menu_reset_score.tscn")
