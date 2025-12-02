@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://drc3wx4cvoqkq"]
+
+[ext_resource type="Script" uid="uid://daw0k6ob7mbqk" path="res://scenes/bonuses/bonus.gd" id="1_jn5dp"]
+[ext_resource type="Texture2D" uid="uid://8kfa42x028og" path="res://assets/Sprites/Other/DoubleScore.png" id="2_gnxh7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gnxh7"]
+radius = 16.03122
+
+[node name="Bonus" type="Node2D"]
+script = ExtResource("1_jn5dp")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(11, -10)
+rect = Rect2(-30, -10, 40, 38)
+
+[node name="Area2D" type="Area2D" parent="." groups=["bonus"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gnxh7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gnxh7")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

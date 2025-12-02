@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	_move_bat()
 	
 func _select_velocity_simple(_delta: float) -> void:
-	velocity = speed * _requested_direction
+	velocity = 1.8 * speed * _requested_direction
 	velocity.x = speed
 	
 func _select_velocity_hard(delta: float) -> void:

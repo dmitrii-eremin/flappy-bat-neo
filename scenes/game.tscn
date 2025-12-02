@@ -26,15 +26,18 @@ visible = false
 [node name="PreparationTimer" parent="." instance=ExtResource("4_0tnpc")]
 visible = false
 
-[node name="ObstaclesSpawner" parent="." node_paths=PackedStringArray("spawn_point", "obstacles_array") instance=ExtResource("4_lbhrr")]
+[node name="ObstaclesSpawner" parent="." node_paths=PackedStringArray("spawn_point", "obstacles_array", "bonuses_array") instance=ExtResource("4_lbhrr")]
 spawn_point = NodePath("../Bat/ObstacleSpawnPoint")
 obstacles_array = NodePath("../ObstaclesArray")
+bonuses_array = NodePath("../BonusesArray")
 
 [node name="SpikesSpawner" parent="." node_paths=PackedStringArray("initial_spikes", "spikes_parent") instance=ExtResource("5_gee14")]
 initial_spikes = NodePath("../SpikesArray/Spikes")
 spikes_parent = NodePath("../SpikesArray")
 
 [node name="Background" parent="." instance=ExtResource("2_lnu2h")]
+
+[node name="BonusesArray" type="Node2D" parent="."]
 
 [node name="Bat" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(63, 108)
@@ -62,10 +65,12 @@ stream = ExtResource("10_vtaks")
 autoplay = true
 parameters/looping = false
 
+[connection signal="on_bonus_time_is_out" from="HUD" to="." method="_on_hud_on_bonus_time_is_out"]
 [connection signal="on_joystick_input" from="HUD" to="." method="_on_hud_on_joystick_input"]
 [connection signal="on_jump_requested" from="HUD" to="." method="_on_hud_on_jump_requested"]
 [connection signal="on_pause_requested" from="HUD" to="." method="_on_hud_on_pause_requested"]
 [connection signal="on_resume" from="PauseMenu" to="." method="_on_pause_menu_on_resume"]
 [connection signal="on_time_is_out" from="PreparationTimer" to="." method="_on_preparation_timer_on_time_is_out"]
+[connection signal="on_bonus_collected" from="ObstaclesSpawner" to="." method="_on_obstacles_spawner_on_bonus_collected"]
 [connection signal="on_player_passed" from="ObstaclesSpawner" to="." method="_on_obstacles_spawner_on_player_passed"]
 [connection signal="on_dead" from="Bat" to="." method="_on_bat_on_dead"]

@@ -67,3 +67,4 @@ label_settings = SubResource("LabelSettings_xh8q5")
 [connection signal="gui_input" from="JumpRequstArea" to="." method="_on_control_gui_input"]
 [connection signal="on_joystick_input" from="OnScreenJoystick" to="." method="_on_on_screen_joystick_on_joystick_input"]
 [connection signal="pressed" from="MarginContainer/MarginContainer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="on_finished" from="MarginContainer/BonusTimer" to="." method="_on_bonus_timer_on_finished"]

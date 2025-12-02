@@ -7,6 +7,7 @@ extends CanvasLayer
 signal on_jump_requested()
 signal on_pause_requested()
 signal on_joystick_input(direction: Vector2)
+signal on_bonus_time_is_out()
 
 func _ready() -> void:
 	_joystick.visible = GameData.control_simple_mode
@@ -30,3 +31,6 @@ func _on_on_screen_joystick_on_joystick_input(direction: Vector2) -> void:
 	if not GameData.control_simple_mode:
 		return
 	on_joystick_input.emit(direction)
+
+func _on_bonus_timer_on_finished() -> void:
+	on_bonus_time_is_out.emit()
