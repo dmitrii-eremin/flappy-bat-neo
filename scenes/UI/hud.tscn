@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://shjwwboxakw3"]
+[gd_scene load_steps=9 format=3 uid="uid://shjwwboxakw3"]
 
 [ext_resource type="Script" uid="uid://b05emsmnc8bvy" path="res://scenes/UI/hud.gd" id="1_c4vmg"]
 [ext_resource type="PackedScene" uid="uid://i4r3kcesg5xp" path="res://scenes/UI/score.tscn" id="2_rd3kb"]
+[ext_resource type="PackedScene" uid="uid://cm6qudfs0nctx" path="res://scenes/UI/on_screen_joystick.tscn" id="3_xh8q5"]
 [ext_resource type="Texture2D" uid="uid://onbwvtkho2lv" path="res://assets/Sprites/UI Elements/Box.png" id="3_y5tme"]
 [ext_resource type="Texture2D" uid="uid://byhal5vp4qjh6" path="res://assets/Sprites/UI Elements/pause-icon.png" id="4_18exe"]
 [ext_resource type="PackedScene" uid="uid://cq4ojvicdtxwg" path="res://scenes/UI/bonus_timer.tscn" id="5_0jeyp"]
@@ -26,6 +27,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="OnScreenJoystick" parent="." instance=ExtResource("3_xh8q5")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 10
@@ -62,4 +65,5 @@ size_flags_horizontal = 8
 label_settings = SubResource("LabelSettings_xh8q5")
 
 [connection signal="gui_input" from="JumpRequstArea" to="." method="_on_control_gui_input"]
+[connection signal="on_joystick_input" from="OnScreenJoystick" to="." method="_on_on_screen_joystick_on_joystick_input"]
 [connection signal="pressed" from="MarginContainer/MarginContainer/PauseButton" to="." method="_on_pause_button_pressed"]

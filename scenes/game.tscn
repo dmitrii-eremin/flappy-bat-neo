@@ -62,6 +62,7 @@ stream = ExtResource("10_vtaks")
 autoplay = true
 parameters/looping = false
 
+[connection signal="on_joystick_input" from="HUD" to="." method="_on_hud_on_joystick_input"]
 [connection signal="on_jump_requested" from="HUD" to="." method="_on_hud_on_jump_requested"]
 [connection signal="on_pause_requested" from="HUD" to="." method="_on_hud_on_pause_requested"]
 [connection signal="on_resume" from="PauseMenu" to="." method="_on_pause_menu_on_resume"]

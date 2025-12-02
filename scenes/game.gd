@@ -32,3 +32,6 @@ func _on_hud_on_jump_requested() -> void:
 
 func _on_preparation_timer_on_time_is_out() -> void:
 	pass # Replace with function body.
+
+func _on_hud_on_joystick_input(direction: Vector2) -> void:
+	_bat.set_direction(direction)

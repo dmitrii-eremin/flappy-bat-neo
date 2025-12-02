@@ -18,15 +18,23 @@ enum State {
 
 var _state: State = State.FLY
 var _is_jump_requested: bool = false
+var _requested_direction: Vector2 = Vector2.ZERO
 
 func jump() -> void:
 	_is_jump_requested = true
+	
+func set_direction(direction: Vector2) -> void:
+	_requested_direction = direction
 
 func _physics_process(delta: float) -> void:
 	_select_velocity(delta)
 	_move_bat()
-
-func _select_velocity(delta: float) -> void:
+	
+func _select_velocity_simple(_delta: float) -> void:
+	velocity = speed * _requested_direction
+	velocity.x = speed
+	
+func _select_velocity_hard(delta: float) -> void:
 	if _state == State.FLY:
 		velocity.x = speed
 		velocity.y += GameData.GRAVITY * delta
@@ -40,7 +48,13 @@ func _select_velocity(delta: float) -> void:
 		_sound_fly.play()
 		velocity.y = jump_speed
 		_is_jump_requested = false
-		
+
+func _select_velocity(delta: float) -> void:
+	if GameData.control_simple_mode:
+		_select_velocity_simple(delta)
+	else:
+		_select_velocity_hard(delta)
+
 func _move_bat() -> void:
 	if _state == State.FLY:
 		move_and_slide()
