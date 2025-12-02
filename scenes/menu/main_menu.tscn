@@ -89,7 +89,24 @@ theme_override_styles/disabled_mirrored = ExtResource("4_xn6kt")
 theme_override_styles/focus = ExtResource("4_xn6kt")
 text = "CREDITS"
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2"]
+[node name="ModeButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_hj162")
+theme_override_styles/normal = ExtResource("4_xn6kt")
+theme_override_styles/normal_mirrored = ExtResource("4_xn6kt")
+theme_override_styles/pressed = ExtResource("5_isoef")
+theme_override_styles/pressed_mirrored = ExtResource("5_isoef")
+theme_override_styles/hover = ExtResource("4_xn6kt")
+theme_override_styles/hover_mirrored = ExtResource("4_xn6kt")
+theme_override_styles/hover_pressed = ExtResource("5_isoef")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_isoef")
+theme_override_styles/disabled = ExtResource("4_xn6kt")
+theme_override_styles/disabled_mirrored = ExtResource("4_xn6kt")
+theme_override_styles/focus = ExtResource("4_xn6kt")
+text = "MODE: HARD"
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer" index="3"]
 layout_mode = 2
 mouse_filter = 0
 text = "SCORE: 22"
@@ -98,4 +115,5 @@ horizontal_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/ModeButton" to="." method="_on_mode_button_pressed"]
 [connection signal="gui_input" from="CanvasLayer/MarginContainer/VBoxContainer/Label" to="." method="_on_label_gui_input"]
