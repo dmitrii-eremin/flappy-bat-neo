@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq4ojvicdtxwg"]
+
+[ext_resource type="Script" uid="uid://dl84owa37fssb" path="res://scenes/UI/bonus_timer.gd" id="1_g0tpe"]
+[ext_resource type="FontFile" uid="uid://3y71ogq5q32" path="res://assets/Fonts/Pixeled.ttf" id="1_ptbqs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kx864"]
+line_spacing = 0.0
+font = ExtResource("1_ptbqs")
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="BonusTimer" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+text = "00:05"
+label_settings = SubResource("LabelSettings_kx864")
+script = ExtResource("1_g0tpe")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

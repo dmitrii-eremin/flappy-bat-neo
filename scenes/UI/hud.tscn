@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://shjwwboxakw3"]
+[gd_scene load_steps=8 format=3 uid="uid://shjwwboxakw3"]
 
 [ext_resource type="Script" uid="uid://b05emsmnc8bvy" path="res://scenes/UI/hud.gd" id="1_c4vmg"]
 [ext_resource type="PackedScene" uid="uid://i4r3kcesg5xp" path="res://scenes/UI/score.tscn" id="2_rd3kb"]
 [ext_resource type="Texture2D" uid="uid://onbwvtkho2lv" path="res://assets/Sprites/UI Elements/Box.png" id="3_y5tme"]
 [ext_resource type="Texture2D" uid="uid://byhal5vp4qjh6" path="res://assets/Sprites/UI Elements/pause-icon.png" id="4_18exe"]
+[ext_resource type="PackedScene" uid="uid://cq4ojvicdtxwg" path="res://scenes/UI/bonus_timer.tscn" id="5_0jeyp"]
+[ext_resource type="FontFile" uid="uid://3y71ogq5q32" path="res://assets/Fonts/Pixeled.ttf" id="6_cg4gw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xh8q5"]
+line_spacing = 0.0
+font = ExtResource("6_cg4gw")
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_c4vmg")
@@ -23,9 +32,13 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
 theme_override_constants/margin_top = 8
 
-[node name="PauseButton" type="TextureButton" parent="MarginContainer"]
+[node name="PauseButton" type="TextureButton" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("3_y5tme")
@@ -34,7 +47,7 @@ texture_hover = ExtResource("3_y5tme")
 texture_disabled = ExtResource("3_y5tme")
 texture_focused = ExtResource("3_y5tme")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PauseButton"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/PauseButton"]
 layout_mode = 0
 offset_left = 3.9999998
 offset_top = 3.9999998
@@ -43,5 +56,10 @@ offset_bottom = 34.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_18exe")
 
+[node name="BonusTimer" parent="MarginContainer" instance=ExtResource("5_0jeyp")]
+layout_mode = 2
+size_flags_horizontal = 8
+label_settings = SubResource("LabelSettings_xh8q5")
+
 [connection signal="gui_input" from="JumpRequstArea" to="." method="_on_control_gui_input"]
-[connection signal="pressed" from="MarginContainer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/PauseButton" to="." method="_on_pause_button_pressed"]
