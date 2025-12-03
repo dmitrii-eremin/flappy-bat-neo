@@ -30,7 +30,7 @@ func _on_spawn_timer_timeout() -> void:
 
 func _spawn_new_bonus() -> void:
 	var bonus = BonusScene.instantiate()
-	var bonus_type = BonusClass.Type.MAKE_WIDER # BonusClass.get_random_type()
+	var bonus_type = BonusClass.get_random_type()
 	bonus.call_deferred("set_bonus_type", bonus_type)
 
 	bonus.global_position.x = spawn_point.global_position.x

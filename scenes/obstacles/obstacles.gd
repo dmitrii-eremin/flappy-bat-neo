@@ -9,7 +9,7 @@ signal on_player_passed()
 @onready var _original_upper_pos: Vector2 = _upper_obstacle.position
 @onready var _original_lower_pos: Vector2 = _lower_obstacle.position
 
-var _make_wider: bool = true
+var _make_wider: bool = false
 var _is_now_visible: bool = false
 
 const _moving_speed: float = 2.0
@@ -32,5 +32,6 @@ func make_wider(value: bool) -> void:
 	_make_wider = value
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	_is_now_visible = true
-	_move_sound.play()
+	if _make_wider:
+		_is_now_visible = true
+		_move_sound.play()
