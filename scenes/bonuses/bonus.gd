@@ -40,6 +40,7 @@ static func get_random_type() -> Type:
 		Type.DOUBLE_SCORE,
 		Type.MAKE_WIDER,
 	]
+	return Type.MAKE_WIDER
 	return types.pick_random()
 			
 func _get_texture(type: Type) -> Texture2D:

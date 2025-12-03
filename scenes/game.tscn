@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyjq0ecftvfyn"]
+[gd_scene load_steps=13 format=3 uid="uid://dyjq0ecftvfyn"]
 
 [ext_resource type="Script" uid="uid://buc3cw1i3tmap" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dh0a0i8xae5q6" path="res://scenes/others/bat_auto_pilot.tscn" id="2_kvpfn"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://shjwwboxakw3" path="res://scenes/UI/hud.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dahn86f1lnnqc" path="res://scenes/UI/pause_menu.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bbrs63v0agqs7" path="res://scenes/obstacles/spikes.tscn" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://bphophits7tg2" path="res://scripts/custom_camera.gd" id="10_dinhu"]
 [ext_resource type="AudioStream" uid="uid://sh5e6qtmduap" path="res://assets/Audio/Music/Background Music.mp3" id="10_vtaks"]
 
 [node name="Game" type="Node2D"]
@@ -47,6 +48,7 @@ position = Vector2(91, 0)
 limit_left = 0
 limit_top = 0
 limit_bottom = 480
+script = ExtResource("10_dinhu")
 
 [node name="ObstacleSpawnPoint" type="Node2D" parent="Bat"]
 position = Vector2(359, 0)
