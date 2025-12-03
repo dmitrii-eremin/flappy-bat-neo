@@ -6,6 +6,7 @@ enum Type
 {
 	EMPTY,
 	DOUBLE_SCORE,
+	MAKE_WIDER,
 }
 
 @export var bonus_type: Type = Type.EMPTY
@@ -16,6 +17,7 @@ signal collected(type: Type)
 @onready var original_position: Vector2 = $Sprite2D.position
 
 var _double_score_sprite = load("res://assets/Sprites/Other/DoubleScore.png")
+var _make_wider_sprite = load("res://assets/Sprites/Other/MakeWider.png")
 
 var float_anim_time: float = 0.0
 var float_speed: float = 0.25
@@ -25,13 +27,24 @@ static func get_duration(type: Type) -> int:
 	match type:
 		Type.DOUBLE_SCORE:
 			return 15
+		Type.MAKE_WIDER:
+			return 15
 		Type.EMPTY, _:
 			return 0
+			
+static func get_random_type() -> Type:
+	var types: Array[Type] = [
+		Type.DOUBLE_SCORE,
+		Type.MAKE_WIDER,
+	]
+	return types.pick_random()
 			
 func _get_texture(type: Type) -> Texture2D:
 	match type:
 		Type.DOUBLE_SCORE:
 			return _double_score_sprite
+		Type.MAKE_WIDER:
+			return _make_wider_sprite
 		Type.EMPTY, _:
 			return null
 			

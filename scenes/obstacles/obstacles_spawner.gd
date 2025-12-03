@@ -30,7 +30,8 @@ func _on_spawn_timer_timeout() -> void:
 
 func _spawn_new_bonus() -> void:
 	var bonus = BonusScene.instantiate()
-	bonus.call_deferred("set_bonus_type", BonusClass.Type.DOUBLE_SCORE)
+	var bonus_type = BonusClass.Type.MAKE_WIDER # BonusClass.get_random_type()
+	bonus.call_deferred("set_bonus_type", bonus_type)
 
 	bonus.global_position.x = spawn_point.global_position.x
 	bonus.global_position.y = spawn_point.global_position.y
@@ -43,4 +44,5 @@ func _spawn_new_obstacle() -> void:
 	obstacle.global_position.y = randi_range(-OBSTACLE_Y_DELTA, OBSTACLE_Y_DELTA)
 	obstacle.on_player_passed.connect(func(): on_player_passed.emit())
 	obstacles_array.add_child(obstacle)
+	GameData.on_obstacle_spawned.emit(obstacle)
 	_obstacles_till_bonus_left -= 1

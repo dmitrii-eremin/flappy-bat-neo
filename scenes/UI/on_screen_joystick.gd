@@ -3,8 +3,8 @@ extends Control
 @export var stick_radius: float = 30.0
 @export var deadzone: float = 10.0
 @export var base_size: float = 80.0
-@export var base_color: Color = Color(1, 1, 1, 0.3)
-@export var stick_color: Color = Color(1, 1, 1, 0.8)
+@export var base_color: Color = Color(1, 1, 1, 0.2)
+@export var stick_color: Color = Color(1, 1, 1, 0.6)
 
 signal on_joystick_input(direction: Vector2)
 
@@ -21,6 +21,9 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		_handle_touch_input(event)
+	elif event is InputEventScreenDrag and _is_pressed and event.index == _touch_index:
+		_current_touch_position = event.position
+		get_tree().root.set_input_as_handled()
 
 func _handle_touch_input(event: InputEventScreenTouch) -> void:
 	if event.pressed:
@@ -55,10 +58,6 @@ func _process(_delta: float) -> void:
 			on_joystick_input.emit(normalized_input)
 		
 		queue_redraw()
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventScreenDrag and _is_pressed and event.index == _touch_index:
-		_current_touch_position = event.position
 
 func _draw() -> void:
 	if not _is_pressed:

@@ -14,6 +14,7 @@ var _score_multiplier: int:
 		return 1 if _current_bonus_type != BonusClass.Type.DOUBLE_SCORE else 2
 
 func _ready() -> void:
+	GameData.on_obstacle_spawned.connect(_on_obstacle_spawned)
 	_hud.set_score(0)
 	_preparation_timer.start()
 
@@ -50,3 +51,6 @@ func _on_obstacles_spawner_on_bonus_collected(type: BonusClass.Type) -> void:
 func _on_hud_on_bonus_time_is_out() -> void:
 	_spawner.bonus_is_allowed = true
 	_current_bonus_type = BonusClass.Type.EMPTY
+	
+func _on_obstacle_spawned(obstacle: Node2D) -> void:
+	obstacle.make_wider(_current_bonus_type == BonusClass.Type.MAKE_WIDER)
