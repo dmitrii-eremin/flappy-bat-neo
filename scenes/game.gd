@@ -27,6 +27,7 @@ func _on_bat_on_dead() -> void:
 	get_tree().change_scene_to_file("res://scenes/UI/completed.tscn")
 
 func _on_hud_on_pause_requested() -> void:
+	GameData.gained_score = _score
 	get_tree().paused = true
 	_pause_menu.show()
 

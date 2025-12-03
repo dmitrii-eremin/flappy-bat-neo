@@ -13,6 +13,10 @@ config_version=5
 config/name="Flappy Bat Neo"
 run/main_scene="uid://bux43oohetno0"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="uid://beskexgffx5uf"
 
 [autoload]
@@ -25,6 +29,7 @@ window/size/viewport_width=270
 window/size/viewport_height=480
 window/size/mode=2
 window/stretch/mode="viewport"
+window/handheld/orientation=1
 
 [global_group]
 
@@ -49,3 +54,4 @@ pointing/emulate_touch_from_mouse=true
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
