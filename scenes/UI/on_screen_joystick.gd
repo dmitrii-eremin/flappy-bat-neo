@@ -12,6 +12,7 @@ var _is_pressed: bool = false
 var _touch_index: int = -1
 var _stick_position: Vector2 = Vector2.ZERO
 var _base_position: Vector2 = Vector2.ZERO
+var _current_touch_position: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -28,6 +29,7 @@ func _handle_touch_input(event: InputEventScreenTouch) -> void:
 			_touch_index = event.index
 			_base_position = event.position - global_position
 			_stick_position = _base_position
+			_current_touch_position = event.position
 			queue_redraw()
 	else:
 		if _touch_index == event.index:
@@ -39,8 +41,7 @@ func _handle_touch_input(event: InputEventScreenTouch) -> void:
 
 func _process(_delta: float) -> void:
 	if _is_pressed and _touch_index >= 0:
-		var touch_pos = get_global_mouse_position()
-		var local_pos = touch_pos - global_position
+		var local_pos = _current_touch_position - global_position
 		var direction = (local_pos - _base_position).normalized()
 		var distance = (local_pos - _base_position).length()
 		
@@ -54,6 +55,10 @@ func _process(_delta: float) -> void:
 			on_joystick_input.emit(normalized_input)
 		
 		queue_redraw()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventScreenDrag and _is_pressed and event.index == _touch_index:
+		_current_touch_position = event.position
 
 func _draw() -> void:
 	if not _is_pressed:
