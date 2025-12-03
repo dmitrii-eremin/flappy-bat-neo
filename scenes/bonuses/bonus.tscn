@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://drc3wx4cvoqkq"]
+[gd_scene load_steps=5 format=3 uid="uid://drc3wx4cvoqkq"]
 
 [ext_resource type="Script" uid="uid://daw0k6ob7mbqk" path="res://scenes/bonuses/bonus.gd" id="1_jn5dp"]
 [ext_resource type="Texture2D" uid="uid://8kfa42x028og" path="res://assets/Sprites/Other/DoubleScore.png" id="2_gnxh7"]
+[ext_resource type="AudioStream" uid="uid://cqyvp7u5uij7h" path="res://assets/Audio/Sound Effects/bonus.wav" id="3_kmtso"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gnxh7"]
 radius = 16.03122
@@ -21,5 +22,9 @@ shape = SubResource("CircleShape2D_gnxh7")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gnxh7")
 
+[node name="BonusTaken" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kmtso")
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="BonusTaken" to="." method="_on_bonus_taken_finished"]

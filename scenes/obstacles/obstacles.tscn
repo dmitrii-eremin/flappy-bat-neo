@@ -48,7 +48,7 @@ rect = Rect2(-69, -184, 106, 768)
 
 [node name="Sounds" type="Node" parent="."]
 
-[node name="MoveObstaclesSound" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="MoveObstaclesSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("4_d8kyb")
 volume_db = 20.0
 

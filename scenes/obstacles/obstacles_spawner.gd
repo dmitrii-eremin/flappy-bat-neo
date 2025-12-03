@@ -25,7 +25,7 @@ func _on_spawn_timer_timeout() -> void:
 		_obstacles_till_bonus_left = bonus_every_nth_obstacle
 		_spawn_new_bonus()
 	else:
-		#_spawn_new_bonus()
+		# _spawn_new_bonus()
 		_spawn_new_obstacle()
 
 func _spawn_new_bonus() -> void:

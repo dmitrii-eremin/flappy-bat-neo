@@ -15,6 +15,7 @@ signal collected(type: Type)
 
 @onready var _sprite = $Sprite2D
 @onready var original_position: Vector2 = $Sprite2D.position
+@onready var _bonus_sound = $BonusTaken
 
 var _double_score_sprite = load("res://assets/Sprites/Other/DoubleScore.png")
 var _make_wider_sprite = load("res://assets/Sprites/Other/MakeWider.png")
@@ -22,6 +23,8 @@ var _make_wider_sprite = load("res://assets/Sprites/Other/MakeWider.png")
 var float_anim_time: float = 0.0
 var float_speed: float = 0.25
 var float_amplitude: float = 16.0
+
+var _is_collected: bool = false
 
 static func get_duration(type: Type) -> int:
 	match type:
@@ -62,8 +65,14 @@ func set_bonus_type(type: Type) -> void:
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		collected.emit(bonus_type)
-		call_deferred("queue_free")
+		if not _is_collected:
+			_is_collected = true
+			_bonus_sound.play()
+			collected.emit(bonus_type)
+			_sprite.hide()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	call_deferred("queue_free")
+
+func _on_bonus_taken_finished() -> void:
 	call_deferred("queue_free")
